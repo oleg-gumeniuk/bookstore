@@ -37,4 +37,6 @@ public interface CartDAO {
      * @return an array that contains the status for every purchased book, e.g. OK(0), NOT_IN_STOCK(1) or DOES_NOT_EXIST(2)
      */
     public int[] buy(List<UUID> bookIDs);
+
+    public void clearCart();
 }

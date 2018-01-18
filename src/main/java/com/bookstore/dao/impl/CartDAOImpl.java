@@ -108,8 +108,13 @@ public class CartDAOImpl implements CartDAO {
             }
         }
 
-        dbHelper.clearCart();
+        clearCart();
 
         return result;
+    }
+
+    @Override
+    public void clearCart() {
+        dbHelper.clearCart();
     }
 }

@@ -23,7 +23,7 @@ import static junit.framework.Assert.assertTrue;
  */
 public class BookDAOImplTests {
 
-    private static final String BOOK_STORE_DATA = "bookstoredata.txt";
+    private static final String BOOK_STORE_DATA = "resources/bookstoredata.txt";
 
     public static BookStoreDBManager bookStoreDBHelper;
     public static BookDAOImpl bookDAOImpl;

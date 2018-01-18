@@ -195,7 +195,7 @@ public class MenuManager {
             BigDecimal itemPrice = book.getPrice().multiply(new BigDecimal(count));
             total = total.add(itemPrice);
 
-            printBook(book, index, book.getQuantity());
+            printBook(book, index, count);
 
             index++;
         }
@@ -221,6 +221,8 @@ public class MenuManager {
             return null;
         }
 
+        List<UUID> booksInCart = new ArrayList<UUID>(cartData.keySet());
+
         List<Book> books = bookDAOImpl.findAllBooks();
         Map<UUID, Book> id2book = new LinkedHashMap<UUID, Book>();
         for (Book book : books) {
@@ -230,8 +232,7 @@ public class MenuManager {
         int []result = cartDAOImpl.buy(new ArrayList<UUID>(cartData.keySet()));
 
         int index = 0;
-        for (Map.Entry<UUID, Integer> entry : cartData.entrySet()) {
-            UUID bookID = entry.getKey();
+        for (UUID bookID : booksInCart) {
             Book book = id2book.get(bookID);
 
             printBookReceipt(book, result[index++]);
